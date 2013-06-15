@@ -3,6 +3,7 @@ import unittest2 as unittest
 from mock import patch
 
 import algorithms
+import settings
 
 class TestAlgorithms(unittest.TestCase):
     """
@@ -56,7 +57,10 @@ class TestAlgorithms(unittest.TestCase):
     @patch.object(algorithms, 'time')
     def test_run_selected_algorithm(self, timeMock):
         timeMock.return_value, timeseries = self.data(time.time())
-        self.assertTrue(algorithms.run_selected_algorithm(timeseries))
+        result, ensemble, tail_avg = algorithms.run_selected_algorithm(timeseries)
+        self.assertTrue(result)
+        self.assertTrue(len(filter(None, ensemble)) >= settings.CONSENSUS)
+        self.assertEqual(tail_avg, 334)
 
 if __name__ == '__main__':
     unittest.main()
