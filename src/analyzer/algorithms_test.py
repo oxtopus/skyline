@@ -65,7 +65,14 @@ class TestAlgorithms(unittest.TestCase):
     @patch.object(algorithms, 'CONSENSUS')
     @patch.object(algorithms, 'ALGORITHMS')
     @patch.object(algorithms, 'time')
-    def test_run_selected_algorithm_runs_novel_algorithm(self, timeMock, algorithmsListMock, consensusMock):
+    def test_run_selected_algorithm_runs_novel_algorithm(self, timeMock, 
+            algorithmsListMock, consensusMock):
+        """
+        Assert that a user can add their own custom algorithm.
+
+        This mocks out settings.ALGORITHMS and settings.CONSENSUS to use only a
+        single custom-defined function (alwaysTrue)
+        """
         algorithmsListMock.__iter__.return_value = ['alwaysTrue']
         consensusMock=1
         timeMock.return_value, timeseries = self.data(time.time())
