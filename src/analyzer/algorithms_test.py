@@ -30,7 +30,7 @@ class TestAlgorithms(unittest.TestCase):
     @patch.object(algorithms, 'time')
     def test_first_hour_average(self, timeMock):
         timeMock.return_value, timeseries = self.data(time.time())
-        self.assertTrue(algorithms.first_hour_average)
+        self.assertTrue(algorithms.first_hour_average(timeseries))
 
     def test_simple_stddev_from_moving_average(self):
         _, timeseries = self.data(time.time())
