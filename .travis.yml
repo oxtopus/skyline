@@ -11,7 +11,7 @@ install:
   - sudo apt-get install -qq python-scipy
   - sudo apt-get install -qq python-pandas
   - sudo pip install patsy --use-mirrors
-  - sudo apt-get install statsmodels --use-mirrors
+  - sudo apt-get install statsmodels
   - sudo apt-get install -qq msgpack-python
   - cp src/settings.py.example src/settings.py
 script: "nosetests -v --nocapture"
