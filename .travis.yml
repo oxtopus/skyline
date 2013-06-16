@@ -6,12 +6,13 @@ virtualenv:
   system_site_packages: true
 install:
   - sudo apt-get update
+  - sudo apt-get install gcc-4.8
   - pip install -r requirements.txt --use-mirrors
-  - sudo apt-get install -qq python-numpy
-  - sudo apt-get install -qq python-scipy
-  - sudo apt-get install -qq python-pandas
-  - sudo pip install patsy --use-mirrors
-  - sudo apt-get install statsmodels
-  - sudo apt-get install -qq msgpack-python
+  - pip install numpy --use-mirrors
+  - pip install scipy --use-mirrors
+  - pip install pandas --use-mirrors
+  - pip install patsy --use-mirrors
+  - pip install statsmodels --use-mirrors
+  - pip install msgpack-python --use-mirrors 
   - cp src/settings.py.example src/settings.py
 script: "nosetests -v --nocapture"
