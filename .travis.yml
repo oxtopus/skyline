@@ -4,7 +4,14 @@ python:
   - "2.7"
 virtualenv:
   system_site_packages: true
-before_install:
- - sudo apt-get install -qq python-numpy python-scipy
-install: "./install_packages.sh"
+install:
+  - sudo apt-get update
+  - pip install -r requirements.txt --use-mirrors
+  - sudo apt-get install -qq python-numpy
+  - sudo apt-get install -qq python-scipy
+  - sudo apt-get install -qq python-pandas
+  - pip install patsy --use-mirrors
+  - sudo apt-get install -qq python-statsmodels
+  - sudo apt-get install -qq msgpack-python
+  - cp src/settings.py.example src/settings.py
 script: "nosetests -v --nocapture"
