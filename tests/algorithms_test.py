@@ -16,8 +16,8 @@ class TestAlgorithms(unittest.TestCase):
     Test all algorithms with a common, simple/known anomalous data set
     """
     
-    def addSkip(self, test, reason):
-        pass
+    def _addSkip(self, test, reason):
+        return super(TestAlgorithms, self)._addSkip(test, reason)
 
     def data(self, ts):
         """ 
