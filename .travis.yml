@@ -10,5 +10,6 @@ install:
   - PYTHONPATH= PATH=/home/travis/anaconda/bin:$PATH pip install patsy --use-mirrors
   - PYTHONPATH= PATH=/home/travis/anaconda/bin:$PATH pip install msgpack_python --use-mirrors
   - PYTHONPATH= PATH=/home/travis/anaconda/bin:$PATH pip install unittest2
+  - PYTHONPATH= PATH=/home/travis/anaconda/bin:$PATH pip install mock
 script:
   - PYTHONPATH= PATH=/home/travis/anaconda/bin:$PATH nosetests
